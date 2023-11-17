@@ -125,7 +125,7 @@ def test_pawn(board: Board, mask: Mask, x: int, y: int) -> None:
 			if board.is_position_empty(x2, y2) or board.is_position_enemy(x2, y2, is_white):
 				mask.fields[x2][y2] = Mask.FLAG_CAPTURE
 	
-	if board.en_passant_position != None:
+	if board.en_passant_position is not None:
 		px, py = board.en_passant_position
 		if mask.fields[px][py] == mask.FLAG_CAPTURE:
 			mask.fields[px][py] = mask.FLAG_EN_PASSANT | mask.FLAG_CAPTURE
@@ -278,7 +278,7 @@ def would_result_in(board: Board, is_white: bool, move_steps: tuple, result: Met
 		board.fields[x2][y2] = b
 
 		# en passant cleanup cleanup
-		if board.en_passant_position != None:
+		if board.en_passant_position is not None:
 
 			epx, epy = board.moved_pieces[-1]
 

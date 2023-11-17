@@ -145,10 +145,10 @@ def complete_simple_move(board: Board, is_white: bool, parsed_input: ParsedInput
 
 	positions = board.get_pieces_positions(piece_type, is_white)
 
-	if x != None:
+	if x is not None:
 		positions = filter(lambda position: position[0] == x, positions)
 
-	if y != None:
+	if y is not None:
 		positions = filter(lambda position: position[1] == y, positions)
 	
 	def is_move_valid(data: Position) -> bool:
